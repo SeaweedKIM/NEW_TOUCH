@@ -1,0 +1,14 @@
+<h1>{{ food.food_name }}</h1>
+<div>
+    <a href=""><img style="background-image; height:300px;" src="{{food.image.url}}" alt="" ></a>
+    <br><br>
+    <h3>가격 : {{ food.price }} 원</h3>
+    {% if food.food_explain %}
+    설명 : {{food.food_explain}} <br><br>
+    {% else %}
+    {% endif %}
+    {% if food.allergy %}
+     ※ {{food.allergy}}
+    {% else %}
+    {% endif %}
+</div>

@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/bootstrap.min.css' %}">
+
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="table-dark">
+            <th>번호</th>
+            <th>제목</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if food_list %}
+        {% for food in food_list%}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'kiosk:food_detail' food.food_num %}">{{food.food_name}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">메뉴가 존재하지 않습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    {% comment %} <a href="{% url 'kiosk:add_menulist' %}" class="btn btn-primary">메뉴 추가하기</a> {% endcomment %}
+</div>
